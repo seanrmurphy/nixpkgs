@@ -13301,6 +13301,8 @@ with pkgs;
 
   sockdump = callPackage ../tools/networking/sockdump { };
 
+  soci-snapshotter = callPackage ../applications/virtualization/soci-snapshotter { };
+
   spglib = callPackage ../development/libraries/spglib {
     inherit (llvmPackages) openmp;
   };
