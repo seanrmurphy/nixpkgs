@@ -766,6 +766,7 @@
   ./services/misc/signald.nix
   ./services/misc/siproxd.nix
   ./services/misc/snapper.nix
+  ./services/misc/soci-snapshotter.nix
   ./services/misc/soft-serve.nix
   ./services/misc/sonarr.nix
   ./services/misc/sourcehut
