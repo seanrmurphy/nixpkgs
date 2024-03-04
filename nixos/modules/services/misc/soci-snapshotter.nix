@@ -20,7 +20,7 @@ in {
         description = lib.mdDoc "Soci-snapshotter config.";
       };
 
-      package = mkPackageOption pkgs "soci-snapshotter" { };
+      #package = mkPackageOption pkgs "soci-snapshotter" { };
 
       package = mkOption {
         type = types.package;
