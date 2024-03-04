@@ -22,6 +22,15 @@ in {
 
       package = mkPackageOption pkgs "soci-snapshotter" { };
 
+      package = mkOption {
+        type = types.package;
+        example = literalExpression "pkgs.soci-snapshotter";
+        description = lib.mdDoc ''
+          Which MySQL derivation to use. MariaDB packages are supported too.
+        '';
+      };
+
+
       # plugins = mkOption {
       #   type = types.listOf types.path;
       #   default = [];
@@ -36,7 +45,11 @@ in {
 
   ###### implementation
 
+
   config = mkIf cfg.enable {
+
+    environment.systemPackages = [ cfg.package ];
+
     systemd.services.soci-snapshotter = with pkgs; {
       description = "Soci-snapshotter Daemon";
       wantedBy = [ "multi-user.target" ];
