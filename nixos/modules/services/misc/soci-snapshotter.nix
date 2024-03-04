@@ -37,7 +37,7 @@ in {
   ###### implementation
 
   config = mkIf cfg.enable {
-    systemd.services.fluentd = with pkgs; {
+    systemd.services.soci-snapshotter = with pkgs; {
       description = "Soci-snapshotter Daemon";
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
