@@ -52,14 +52,15 @@ in
 
     virtualisation.containerd = {
       args.config = toString containerdConfigChecked;
-      settings = {
-        version = 2;
-        plugins."io.containerd.grpc.v1.cri" = {
-         containerd.snapshotter =
-           lib.mkIf config.boot.zfs.enabled (lib.mkOptionDefault "zfs");
-         cni.bin_dir = lib.mkOptionDefault "${pkgs.cni-plugins}/bin";
-        };
-      };
+      # commented out as it seems to clash with the option specified with mkOption
+      #settings = {
+      #  version = 2;
+      #  plugins."io.containerd.grpc.v1.cri" = {
+      #   containerd.snapshotter =
+      #     lib.mkIf config.boot.zfs.enabled (lib.mkOptionDefault "zfs");
+      #   cni.bin_dir = lib.mkOptionDefault "${pkgs.cni-plugins}/bin";
+      #  };
+      #};
     };
 
     environment.systemPackages = [ pkgs.containerd ];
